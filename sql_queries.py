@@ -12,15 +12,15 @@ airline_fact_drop = 'DROP TABLE IF EXISTS airline_fact;'
 # create tables
 aircraft_dim_create = """
 CREATE TABLE IF NOT EXISTS aircraft_dim (
-    c_aircraft varchar primary key,
-    c_airline varchar
+    c_aircraft varchar(7) primary key,
+    c_airline varchar(2)
 ) 
 """
 
 airline_dim_create = """
 CREATE TABLE IF NOT EXISTS airline_dim (
-    c_airline varchar primary key,
-    airline_name varchar
+    c_airline varchar(2) primary key,
+    airline_name varchar(100)
 )
 """
 
@@ -33,22 +33,22 @@ CREATE TABLE IF NOT EXISTS cancel_dim (
 
 delay_dim_create = """
 CREATE TABLE IF NOT EXISTS delay_dim (
-    delay_group varchar primary key,
-    time_range_minute varchar
+    delay_group varchar(4) primary key,
+    time_range_minute varchar(150)
 )
 """
 
 distance_dim_create = """
-CREATE TABLE IF NOT EXIST distance_dim (
-    distance_group varchar primary key,
-    distance_range_mile varchar
+CREATE TABLE IF NOT EXISTS distance_dim (
+    distance_group varchar(4) primary key,
+    distance_range_mile varchar(150)
 )
 """
 
 port_loc_dim_create = """
 CREATE TABLE IF NOT EXISTS port_loc_dim (
     c_port varchar(5) primary key,
-    city_name varchar,
+    city_name varchar(50),
     c_state varchar(2)
 )
 """
@@ -56,25 +56,26 @@ CREATE TABLE IF NOT EXISTS port_loc_dim (
 state_dim_create = """
 CREATE TABLE IF NOT EXISTS state_dim (
     c_state varchar(2) primary key,
-    state_name varchar
+    state_name varchar(50)
 )
 """
 
 airline_fact_create = """
 CREATE TABLE IF NOT EXISTS airline_fact (
+    flight_id int primary key,
     flight_date date,
-    c_airline varchar,
-    flight_num varchar,
-    c_aircraft varchar,
-    origin varchar,
-    dest varchar,
-    schedule_arr_time varchar,
-    actual_arr_time varchar,
-    arr_delay_group varchar,
-    schedule_dep_time varchar,
-    actual_dep_time varchar,
-    dep_delay_group varchar,
-    distance_group varchar,
+    c_airline varchar(2),
+    flight_num varchar(7),
+    c_aircraft varchar(7),
+    origin varchar(50),
+    dest varchar(50),
+    schedule_arr_time varchar(10),
+    actual_arr_time varchar(10),
+    arr_delay_group varchar(4),
+    schedule_dep_time varchar(10),
+    actual_dep_time varchar(10),
+    dep_delay_group varchar(4),
+    distance_group varchar(4),
     c_cancel varchar(1) 
 )
 """
@@ -139,6 +140,7 @@ VALUES (%s, %s)
 
 airline_fact_insert = """
 INSERT INTO airline_fact (
+    flight_id,
     flight_date,
     c_airline,
     flight_num,
@@ -154,7 +156,7 @@ INSERT INTO airline_fact (
     distance_group,
     c_cancel 
 )
-VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 """
 
 # query list
