@@ -69,12 +69,12 @@ CREATE TABLE IF NOT EXISTS airline_fact (
     c_aircraft varchar(7),
     origin varchar(50),
     dest varchar(50),
-    schedule_arr_time varchar(10),
-    actual_arr_time varchar(10),
-    arr_delay_group varchar(4),
     schedule_dep_time varchar(10),
     actual_dep_time varchar(10),
     dep_delay_group varchar(4),
+    schedule_arr_time varchar(10),
+    actual_arr_time varchar(10),
+    arr_delay_group varchar(4),
     distance_group varchar(4),
     c_cancel varchar(1) 
 )
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS airline_fact (
 # insert into tables
 aircraft_dim_insert = """
 INSERT INTO aircraft_dim (
-    c_aircrafe,
+    c_aircraft,
     c_airline
 )
 VALUES (%s, %s)
@@ -147,12 +147,12 @@ INSERT INTO airline_fact (
     c_aircraft,
     origin,
     dest,
-    schedule_arr_time,
-    actual_arr_time,
-    arr_delay_group,
     schedule_dep_time,
     actual_dep_time,
     dep_delay_group,
+    schedule_arr_time,
+    actual_arr_time,
+    arr_delay_group,
     distance_group,
     c_cancel 
 )
