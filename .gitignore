@@ -1,4 +1,4 @@
 .ipynb_checkpoints
 *.csv
 config.py
-__pychache__
+__pycache__
