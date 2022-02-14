@@ -21,65 +21,65 @@ To manipulate and upload datasets to the Postgres server, we need to run the fol
 ### 4. Postgres Database
 - **airline_dim** contains airline carrier codes and names.
 
-airline_dim    |                       
+**airline_dim**|                       
 ---------------|
 c_airline (PK) |
 airline_name   |
 
 - **cancel_dim** contains cancel codes (A: Carrier, B: Weather, C: National Aviation System, D: Security, O: Non-cancellation).
 
-cancel_dim |
------------
-c_cancel (PK)
-cancel_des
+**cancel_dim**|
+--------------|
+c_cancel (PK) |
+cancel_des    |
 
 - **delay_dim** contains a range of numbers which is represented for 15-minute increments Rounded Down.
 
-delay_dim |
-----------
-delay_group (PK)
-time_range_minute
+**delay_dim**     |
+------------------|
+delay_group (PK)  |
+time_range_minute |
 
 - **distance_dim** contains a range of numbers which is represented for 250-Mile increments Rounded Down.
 
-distance_dim |
--------------
-distance_group (PK)
-distance_range_mile
+**distance_dim**   |
+-------------------|
+distance_group (PK)|
+distance_range_mile|
 
 - **port_loc_dim** contains all airports in US.
 
-port_loc_dim |
--------------
-c_port (PK)
-city_name
-c_state
+**port_loc_dim**|
+----------------|
+c_port (PK)     |
+city_name       |
+c_state         |
 
 - **state_dim** contains all states in US.
 
-state_dim |
-----------
-c_state (PK)
-state_name
+**state_dim**|
+-------------|
+c_state (PK) |
+state_name   |
 
 - **airline_fact** is the fact table in this dataset.
 
-airline_fact |
--------------
-flight_id (PK)
-flight_date
-c_airline
-flight_num
-c_aircraft
-origin
-dest
-schedule_dep_time
-actual_dep_time
-dep_delay_group
-schedule_arr_time
-actual_arr_time
-arr_delay_group
-distance_group
-c_cancel 
+**airline_fact** |
+-----------------|
+flight_id (PK)   |
+flight_date      |
+c_airline        |
+flight_num       |
+c_aircraft       |
+origin           |
+dest             |
+schedule_dep_time|
+actual_dep_time  |
+dep_delay_group  |
+schedule_arr_time|
+actual_arr_time  |
+arr_delay_group  |
+distance_group   |
+c_cancel         |
 
 **Note**: (PK) is the primary key.
