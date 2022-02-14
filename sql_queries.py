@@ -1,5 +1,4 @@
 # drop tables
-aircraft_dim_drop = 'DROP TABLE IF EXISTS aircraft_dim;'
 airline_dim_drop = 'DROP TABLE IF EXISTS airline_dim;'
 cancel_dim_drop = 'DROP TABLE IF EXISTS cancel_dim;'
 delay_dim_drop = 'DROP TABLE IF EXISTS delay_dim;'
@@ -10,13 +9,6 @@ state_dim_drop = 'DROP TABLE IF EXISTS state_dim;'
 airline_fact_drop = 'DROP TABLE IF EXISTS airline_fact;'
 
 # create tables
-aircraft_dim_create = """
-CREATE TABLE IF NOT EXISTS aircraft_dim (
-    c_aircraft varchar(7) primary key,
-    c_airline varchar(2)
-) 
-"""
-
 airline_dim_create = """
 CREATE TABLE IF NOT EXISTS airline_dim (
     c_airline varchar(2) primary key,
@@ -81,14 +73,6 @@ CREATE TABLE IF NOT EXISTS airline_fact (
 """
 
 # insert into tables
-aircraft_dim_insert = """
-INSERT INTO aircraft_dim (
-    c_aircraft,
-    c_airline
-)
-VALUES (%s, %s)
-"""
-
 airline_dim_insert = """
 INSERT INTO airline_dim (
     c_airline,
@@ -160,6 +144,6 @@ VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 """
 
 # query list
-create_tables_query = [aircraft_dim_create, airline_dim_create, cancel_dim_create, delay_dim_create, distance_dim_create, port_loc_dim_create, state_dim_create]
+create_tables_query = [airline_dim_create, cancel_dim_create, delay_dim_create, distance_dim_create, port_loc_dim_create, state_dim_create, airline_fact_create]
 
-drop_tables_query = [aircraft_dim_drop, airline_dim_drop, cancel_dim_drop, delay_dim_drop, distance_dim_drop, port_loc_dim_drop, state_dim_drop]
+drop_tables_query = [airline_dim_drop, cancel_dim_drop, delay_dim_drop, distance_dim_drop, port_loc_dim_drop, state_dim_drop, airline_fact_drop]
