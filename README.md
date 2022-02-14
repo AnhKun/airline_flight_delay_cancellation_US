@@ -21,10 +21,10 @@ To manipulate and upload datasets to the Postgres server, we need to run the fol
 ### 4. Postgres Database
 - **airline_dim** contains airline carrier codes and names.
 
-airline_dim |                       
-------------
-c_airline (PK)
-airline_name
+airline_dim    |                       
+---------------|
+c_airline (PK) |
+airline_name   |
 
 - **cancel_dim** contains cancel codes (A: Carrier, B: Weather, C: National Aviation System, D: Security, O: Non-cancellation).
 
