@@ -5,7 +5,6 @@ import config
 
 def process_data(cur, conn):
     # create the dataframe for each dataset
-    aircraft_df = pd.read_csv('data/aircraft.csv')
     airline_df = pd.read_csv('data/airline.csv')
     cancel_df = pd.read_csv('data/cancellation.csv')
     delay_df = pd.read_csv('data/delay_group.csv')
@@ -16,10 +15,6 @@ def process_data(cur, conn):
     fact_df = pd.read_csv('data/fact.csv')
 
     # save value into postgress sever
-    for _, row in aircraft_df.iterrows():
-        cur.execute(aircraft_dim_insert, row)
-        conn.commit()
-
     for _, row in airline_df.iterrows():
         cur.execute(airline_dim_insert, row)
         conn.commit()
