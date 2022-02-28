@@ -1,5 +1,5 @@
 # Flight cancellation and delay during Covid-19 in US
-The purpose of this project is to give the first hands-on experience about modeling and uploading datasets into Postgres server or into data storage such as data warehouse.
+The purpose of this project is to give the first hands-on experience about modeling and uploading datasets into Postgres server or into data storage such as postgres database or data warehouse for further analysis.
 ### 1. Dataset
 This dataset is taken from Kaggle. 
 <br>For more infomation about the dataset, it's [here](https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations)
@@ -16,9 +16,13 @@ This project includes 5 files (.py and .ipynb). They are:
 - **sql_queries.py**: contain the queries to create, drop and insert values into the table.
 - **modify_tables.py**: connect to the Postgres server; drop and create the database and necessary tables into Postgres.
 - **elt.py**: connect to the Postgres server; insert values from sub datasets into tables in Postgres.
+- **test.py**: use pytest to ensure that all records were completely uploaded.
+- **analysis.ipynb**: make some analysis.
 
-To manipulate and upload datasets to the Postgres server, we need to run the following order of the workflow: wrangling.ipynb >> sql_queries.py >> modify_tables.py >> etl.py
+To manipulate and upload datasets to the Postgres server, we need to run the following order of the workflow: wrangling.ipynb >> sql_queries.py >> modify_tables.py >> etl.py >> test.py >> analysis.ipynb
 ### 4. Postgres Database
+![](/data/entity_relationship.png)
+
 - **airline_dim** contains airline carrier codes and names.
 
 **airline_dim**|                       
