@@ -21,6 +21,7 @@ This project includes 5 files (.py and .ipynb). They are:
 
 To manipulate and upload datasets to the Postgres server, we need to run the following order of the workflow: wrangling.ipynb >> sql_queries.py >> modify_tables.py >> etl.py >> test.py >> analysis.ipynb
 ### 4. Postgres Database
+
 ![](/data/entity_relationship.png)
 
 - **airline_dim** contains airline carrier codes and names.
