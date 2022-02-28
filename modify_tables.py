@@ -4,7 +4,7 @@ import config
 
 def create_database():
     """
-    Create and connect to airline database in postgreSQL
+    Function: Create and connect to airline database in postgreSQL
     """
 
     # connect to postgres database
@@ -28,7 +28,10 @@ def create_database():
 
 def drop_table(cur, conn):
     """
-    Drops each table using the queries in `drop_tables_query` list.
+    Function: Drops each table using the queries in `drop_tables_query` list.
+    Parameter: 
+        - cur: cursor of postgres server
+        - conn: connection to postgres server
     """
 
     for query in drop_tables_query:
@@ -37,7 +40,10 @@ def drop_table(cur, conn):
 
 def create_table(cur, conn):
     """
-    Create each table using the queries in `create_tables_query` list
+    Function: Create each table using the queries in `create_tables_query` list
+    Parameter: 
+        - cur: cursor of postgres server
+        - conn: connection to postgres server
     """
     
     for query in create_tables_query:

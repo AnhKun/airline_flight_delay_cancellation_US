@@ -4,6 +4,13 @@ import psycopg2
 import config
 
 def process_data(cur, conn):
+    """
+    Function: insert all records to the postgres database
+    Parameter: 
+        - cur: cursor of postgres server
+        - conn: connection to postgres server
+    """
+
     # create the dataframe for each dataset
     airline_df = pd.read_csv('data/airline.csv')
     cancel_df = pd.read_csv('data/cancellation.csv')
@@ -46,6 +53,9 @@ def process_data(cur, conn):
 
 def main():
     """
+    Connect to the postgres server
+    Insert all records to postgres database
+    Close connection
     """
 
     # connect to airline database
