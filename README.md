@@ -17,9 +17,8 @@ This project includes 5 files (.py and .ipynb). They are:
 - **modify_tables.py**: connect to the Postgres server; drop and create the database and necessary tables into Postgres.
 - **elt.py**: connect to the Postgres server; insert values from sub datasets into tables in Postgres.
 - **test.py**: use pytest to ensure that all records were completely uploaded.
-- **analysis.ipynb**: make some analysis.
 
-To manipulate and upload datasets to the Postgres server, we need to run the following order of the workflow: wrangling.ipynb >> sql_queries.py >> modify_tables.py >> etl.py >> test.py >> analysis.ipynb
+To manipulate and upload datasets to the Postgres server, we need to run the following order of the workflow: wrangling.ipynb >> sql_queries.py >> modify_tables.py >> etl.py >> test.py 
 ### 4. Postgres Database
 
 ![](https://github.com/AnhKun/airline_flight_delay_cancellation_US/blob/master/data/entity_relationship.PNG)
